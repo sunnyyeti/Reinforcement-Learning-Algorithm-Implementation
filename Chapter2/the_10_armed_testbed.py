@@ -55,4 +55,4 @@ class Bandit():
                 action = np.random.choice([act for act, q_est in enumerate(self.q_estimation) if q_est == max_est])
                 return action
         if self.strategy["name"] == Bandit.UCB:
-            
+
