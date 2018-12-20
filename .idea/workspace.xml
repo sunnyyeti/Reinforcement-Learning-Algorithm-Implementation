@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d079cbe-5300-4fe3-9b22-0113f630897a" name="Default Changelist" comment="" />
+    <list default="true" id="2d079cbe-5300-4fe3-9b22-0113f630897a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +45,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Chapter2/the_10_armed_testbed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            <state relative-caret-position="318">
+              <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding>
-                <marker date="1545231310769" expanded="true" signature="171:176" ph="..." />
+                <marker date="1545299228458" expanded="true" signature="171:176" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,6 +92,11 @@
               <item name="Reinforcement-Learning-Algorithm-Implementation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Reinforcement-Learning-Algorithm-Implementation" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Reinforcement-Learning-Algorithm-Implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reinforcement-Learning-Algorithm-Implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="Chapter2" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -130,7 +137,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.02782194" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07790143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -154,10 +161,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Chapter2/the_10_armed_testbed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        <state relative-caret-position="318">
+          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
-            <marker date="1545231310769" expanded="true" signature="171:176" ph="..." />
+            <marker date="1545299228458" expanded="true" signature="171:176" ph="..." />
           </folding>
         </state>
       </provider>

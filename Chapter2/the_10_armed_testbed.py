@@ -34,4 +34,3 @@ class Bandit():
         """
         Initialize a new bandit problem.
         """
-        
