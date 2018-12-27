@@ -21,8 +21,8 @@ class Bandit():
                                 For Bandit.EPS_GREEDY, key "epsilon:double" is required.
                                 For Bandit.USB, key "coef_c:double" is required.
                                 For Bandit.GRADIENT, key "alpha:double" and "ave_baseline:Bool" is required.
-        :param sample_average: bool. Whether to update the action value estimations by sample averages. If True, step_size is ignored.
-        :param step_size: double. Constant step_size for updating action value estimations.
+        :param sample_average: bool. Whether to update the action value estimations by sample averages. If True, step_size is ignored. This parameter is only used when strategy is not Bandit.GRADIENT
+        :param step_size: double. Constant step_size for updating action value estimations. This parameter is only used when strategy is not Bandit.GRADIENT
         """
         self.k_arms = k_arms
         self.actions = np.arange(self.k_arms)
@@ -132,6 +132,7 @@ def figure_2_1():
     plt.xlabel("Action")
     plt.ylabel("Reward distribution")
     plt.savefig("Figure_2_1.png")
+    plt.close()
 
 
 def figure_2_2():
@@ -152,7 +153,6 @@ def figure_2_2():
     plt.xlabel("Steps")
     plt.ylabel("Average reward")
     plt.legend()
-
     plt.subplot(212)
     for eps, act in zip(epsilons, actions):
         plt.plot(np.arange(1, steps + 1), act, label="ε = {:.2f}".format(eps))
@@ -160,6 +160,7 @@ def figure_2_2():
     plt.ylabel("% Optimal action")
     plt.legend()
     plt.savefig("Figure_2_2.png")
+    plt.close()
 
 def figure_2_3():
     common_ban_par = {"k_arms": 10, "q_true_mean": 0, "q_true_std": 1, "arm_reward_std": 1, "sample_average":False, "step_size":0.1}
@@ -180,6 +181,7 @@ def figure_2_3():
     plt.ylabel("% Optimal action")
     plt.legend()
     plt.savefig("Figure_2_3.png")
+    plt.close()
 
 def figure_2_4():
     common_ban_par = {"k_arms": 10, "q_true_mean": 0, "q_true_std": 1, "arm_reward_std": 1, "q_estimation_initial":0}
@@ -200,7 +202,69 @@ def figure_2_4():
     plt.ylabel("Average reward")
     plt.legend()
     plt.savefig("Figure_2_4.png")
+    plt.close()
+
+def figure_2_5():
+    common_ban_par = {"k_arms": 10, "q_true_mean": 4, "q_true_std": 1, "arm_reward_std": 1, "q_estimation_initial": 0}
+    alphas = [0.1, 0.4]
+    ave_baselines = [True, False]
+    pars = [{"strategy":{"name":Bandit.GRADIENT,"alpha":alpha,"ave_baseline":ave_baseline}} for alpha in alphas for ave_baseline in ave_baselines]
+    labels = ["α={:.1f}, with baseline={}".format(alpha,ave_baseline) for alpha in alphas for ave_baseline in ave_baselines]
+    bandits = []
+    runs = 2000
+    steps = 1000
+    for par in pars:
+        common_ban_par.update(par)
+        bandits.append(Bandit(**common_ban_par))
+    rewards, actions = simulate(bandits, runs, steps)
+    for act,lab in zip(actions,labels):
+        plt.plot(np.arange(1, steps + 1), act, label=lab)
+    plt.xlabel("Steps")
+    plt.ylabel("% Optimal action")
+    plt.legend()
+    plt.savefig("Figure_2_5.png")
+    plt.close()
+
+def figure_2_6():
+    epsilons = np.arange(-7,-1,dtype=np.float64)
+    alphas = np.arange(-5,2,dtype=np.float64)
+    coef_cs = np.arange(-4,3,dtype=np.float64)
+    initials = np.arange(-2,3,dtype=np.float64)
+    labels = ["ε-greedy","gradient bandit","UCB","greedy with optimistic initialization α=0.1"]
+    pars = [epsilons,alphas,coef_cs,initials]
+    common_ban_par = {"k_arms": 10, "q_true_mean": 0, "q_true_std": 1, "arm_reward_std": 1, "q_estimation_initial": 0}
+    eps_par = lambda x: {"strategy":{"name":Bandit.EPS_GREEDY,"epsilon":x}}
+    gra_par = lambda x: {"strategy":{"name":Bandit.GRADIENT,"alpha":x,"ave_baseline":True}}
+    ucb_par = lambda x: {"strategy":{"name":Bandit.UCB,"coef_c":x}}
+    ini_par = lambda x: {"strategy":{"name":Bandit.EPS_GREEDY,"epsilon":0},"q_estimation_initial":x,"sample_average":False,"step_size":0.1}
+    par_gens = [eps_par,gra_par,ucb_par,ini_par]
+    bandits = []
+    for par_gen, par in zip(par_gens, pars):
+        par = np.power(2,par)
+        for p in par:
+            common_ban_par.update(par_gen(p))
+            bandits.append(Bandit(**common_ban_par))
+    runs  = 2000
+    steps = 1000
+    rewards,actions = simulate(bandits,runs,steps)
+    ave_reward_over_steps = rewards.mean(axis=1)
+    #plt.figure(figsize=(10,10))
+    indx=0
+    for  par, lab in zip(pars, labels):
+        x_ = np.power(2,par)
+        y_ = ave_reward_over_steps[indx:indx+len(par)]
+        indx = indx+len(par)
+        plt.semilogx(x_,y_,label = lab,basex=2)
+    plt.legend()
+    plt.grid()
+    plt.savefig("Figure_2_6.png")
+    plt.close()
+
 
 if __name__ == "__main__":
-    #figure_2_1()
+    figure_2_1()
+    figure_2_2()
+    figure_2_3()
     figure_2_4()
+    figure_2_5()
+    figure_2_6()
