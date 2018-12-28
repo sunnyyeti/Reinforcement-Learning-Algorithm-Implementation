@@ -51,7 +51,7 @@ class GridWorld():
         :param discount: reward discount for further steps.
         :param iterations: maximum number of iterations to solve the grid world problem.
         :param epsilon: calculating stops if difference between two iterations is smaller than epsilon for each grid cell.
-        :return:
+        :return: None
         """
         for _ in range(iterations):
             new_values = np.zeros_like(self.gridworld)
