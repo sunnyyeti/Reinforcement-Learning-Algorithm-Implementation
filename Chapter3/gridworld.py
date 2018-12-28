@@ -85,12 +85,12 @@ def figure_3_2():
     grid.save_result("Figure_3_2.png")
 
 
-def figure_3_3():
+def figure_3_5():
     grid = GridWorld()
     grid.solve(policy=GridWorld.OPTIMAL_POLICY, discount=0.9, iterations=1000000, epsilon=1e-5)
-    grid.save_result("Figure_3_3.png")
+    grid.save_result("Figure_3_5.png")
 
 
 if __name__ == "__main__":
     figure_3_2()
-    figure_3_3()
+    figure_3_5()
