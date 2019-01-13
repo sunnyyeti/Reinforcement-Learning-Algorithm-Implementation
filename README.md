@@ -3,6 +3,10 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 
 # Contents
 ## Chapter 2
+### Overview
+|<img src="https://i.imgur.com/si2CUuM.png" width="200" height="150"><p align="right"> Figure 2.1 </p>|<img src="https://i.imgur.com/VXX3Gki.png" width="200" height="150">|<img src="https://i.imgur.com/BvkK1fr.png" width="200" height="150">|
+|---|---|---|
+|<img src="https://i.imgur.com/ev5Nnl1.png" width="200" height="150">|<img src="https://i.imgur.com/3rJGoAr.png" width="200" height="150">|<img src="https://i.imgur.com/w3TYCSn.png" width="200" height="150">|
 1. [Figure 2.1: An example bandit problem from the 10-armed testbed.](https://i.imgur.com/si2CUuM.png) 
 2. [Figure 2.2: Average performance of "ε-greedy action-value methods on the 10-armed testbed.](https://i.imgur.com/VXX3Gki.png)
 3. [Figure 2.3: The effect of optimistic initial action-value estimates on the 10-armed testbed.](https://i.imgur.com/BvkK1fr.png) 
