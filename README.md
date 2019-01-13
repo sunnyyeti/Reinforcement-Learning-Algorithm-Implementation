@@ -3,7 +3,6 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 
 # Contents
 ## Chapter 2
-### Thumbnail Overview
 |<img src="https://i.imgur.com/si2CUuM.png" width="200" height="150"><p align="center"> Figure 2.1 </p>|<img src="https://i.imgur.com/VXX3Gki.png" width="200" height="150"><p align="center"> Figure 2.2 </p>|<img src="https://i.imgur.com/BvkK1fr.png" width="200" height="150"><p align="center"> Figure 2.3 </p>|
 |---|---|---|
 |<img src="https://i.imgur.com/ev5Nnl1.png" width="200" height="150"><p align="center"> <b>Figure 2.4</b> </p>|<img src="https://i.imgur.com/3rJGoAr.png" width="200" height="150"><p align="center"> <b> Figure 2.5 </b> </p>|<img src="https://i.imgur.com/w3TYCSn.png" width="200" height="150"><p align="center"><b> Figure 2.6 </b> </p>|
