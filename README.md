@@ -28,7 +28,7 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 2. [Figure 4.3: The solution to the gambler’s problem for ph = 0.4. The upper graph shows the value function found by successive sweeps of value iteration. The lower graph shows the final policy.](https://i.imgur.com/ASxCemV.png)
 
 ## Chapter 5
-|<img src="https://i.imgur.com/bfNIi8v.png" width="200" height="150"><p align="center"> Figure 5.1 </p>|<img src="https://i.imgur.com/Np7J17N.png" width="200" height="150"><p align="center"> Figure 5.2 </p>|<img src="https://i.imgur.com/G6bGNbu.png" width="200" height="150"><p aign="center"> Figure 5.3 </p>|<img src="https://i.imgur.com/wiynD78.png" width="200" height="150"><p aign="center"> Figure 5.3 </p>|
+|<img src="https://i.imgur.com/bfNIi8v.png" width="200" height="150"><p align="center"> Figure 5.1 </p>|<img src="https://i.imgur.com/Np7J17N.png" width="200" height="150"><p align="center"> Figure 5.2 </p>|<img src="https://i.imgur.com/G6bGNbu.png" width="200" height="150"><p aign="center"> Figure 5.3 </p>|<img src="https://i.imgur.com/wiynD78.png" width="200" height="150"><p aign="center"> Figure 5.4 </p>|
 |---|---|---|---|
 1. [Figure 5.1: Approximate state-value functions for the blackjack policy that sticks only on 20 or 21, computed by Monte Carlo policy evaluation.](https://i.imgur.com/bfNIi8v.png)
 2. [Figure 5.2: The optimal policy and state-value function for blackjack, found by Monte Carlo ES. The state-value function shown was computed from the action-value function found by Monte Carlo ES.](https://i.imgur.com/Np7J17N.png)
