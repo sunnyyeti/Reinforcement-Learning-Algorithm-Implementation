@@ -284,10 +284,6 @@ class Blackjack:
         return state_values
 
 
-
-
-
-
 def figure_5_1():
     def draw(i, value, xlabel, ylabel, title):
         ax = plt.subplot(2, 2, i, projection="3d")
