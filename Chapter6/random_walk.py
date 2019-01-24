@@ -1,7 +1,7 @@
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-import seaborn
+
 
 
 class RandomWalk:
@@ -192,5 +192,5 @@ def figure_6_2():
 
 
 if __name__ == "__main__":
-    # example_6_2()
+    example_6_2()
     figure_6_2()
