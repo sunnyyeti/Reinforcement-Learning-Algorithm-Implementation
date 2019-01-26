@@ -34,3 +34,14 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 2. [Figure 5.2: The optimal policy and state-value function for blackjack, found by Monte Carlo ES. The state-value function shown was computed from the action-value function found by Monte Carlo ES.](https://i.imgur.com/Np7J17N.png)
 3. [Figure 5.3: Weighted importance sampling produces lower error estimates of the value of a single blackjack state from off-policy episodes.](https://i.imgur.com/G6bGNbu.png)
 4. [Figure 5.4: Ordinary importance sampling produces surprisingly unstable estimates on the one-state MDP shown inset (Example 5.5).](https://i.imgur.com/wiynD78.png)
+
+## Chapter 6
+|<img src="https://imgur.com/cgEorvy.png" width="200" height="150"><p align="center"> Example 6.2 </p>|<img src="https://i.imgur.com/HVvLUSw.png" width="200" height="150"><p align="center"> Figure 6.2 </p>|<img src="https://i.imgur.com/7FIjyRm.png" width="200" height="150"><p align="center"> Example 6.5 </p>|
+|---|---|---|
+|<img src="https://i.imgur.com/cGoWwQY.png" width="200" height="150"><p align="center"> <b>Example 6.6</b> </p>|<img src="https://i.imgur.com/lRtrYqb.png" width="200" height="150"><p align="center"> <b> Figure 6.3 </b> </p>|<img src="https://i.imgur.com/H3yWsHC.png" width="200" height="150"><p align="center"><b> Figure 6.5 </b> </p>|
+1. [Example 6.2: Random walk.](https://imgur.com/cgEorvy.png) 
+2. [Figure 6.2: Performance of TD(0) and constant-α MC under batch training on the random walk task.](https://i.imgur.com/HVvLUSw.png)
+3. [Example 6.5: Windy gridworld.](https://i.imgur.com/7FIjyRm.png) 
+4. [Example 6.6: Cliff walking.](https://i.imgur.com/cGoWwQY.png)
+5. [Figure 6.3: Interim and asymptotic performance of TD control methods on the cliff-walking task as a function of α.](https://i.imgur.com/lRtrYqb.png)
+6. [Figure 6.5: Comparison of Q-learning and Double Q-learning on a simple episodic MDP.](https://i.imgur.com/H3yWsHC.png)

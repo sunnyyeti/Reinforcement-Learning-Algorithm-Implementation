@@ -1,7 +1,9 @@
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+
+
+# import matplotlib.patches as patches
 
 
 class CliffWalking:
@@ -87,6 +89,60 @@ class CliffWalking:
             rewards += reward
         return rewards
 
+    def expected_sarsa_episode(self, alpha, epsilon):
+        state = CliffWalking.START
+        action = self.epsilon_greedy(state, epsilon)
+        rewards = 0.0
+        while state != CliffWalking.GOAL:
+            reward, next_state = self.step(state, action)
+            next_state_max_q_value = self.grid_word[next_state].max()
+            next_max_actions_cnt = sum(
+                self.grid_word[next_state][i] == next_state_max_q_value for i in range(len(CliffWalking.ACTIONS)))
+            expectded_q_value = 0.0
+            for i in range(len(CliffWalking.ACTIONS)):
+                if self.grid_word[next_state][i] == next_state_max_q_value:
+                    expectded_q_value += next_state_max_q_value * (
+                            epsilon / len(CliffWalking.ACTIONS) + (1 - epsilon) / next_max_actions_cnt)
+                else:
+                    expectded_q_value += self.grid_word[next_state][i] * (epsilon / len(CliffWalking.ACTIONS))
+            update = alpha * (reward + expectded_q_value - self.grid_word[state][action])
+            self.grid_word[state][action] += update
+            state = next_state
+            action = self.epsilon_greedy(state, epsilon)
+            rewards += reward
+        return rewards
+
+    def do_experiments(self, runs, episodes, method, alpha, epsilon):
+        res = 0.0
+        for run_ind in range(runs):
+            self.init()
+            for epi_ind in range(episodes):
+                res += method(alpha, epsilon)
+        return res / (runs * episodes)
+
+    def figure_6_3(self):
+        EPSILON = 0.1
+        ALPHAS = np.arange(0.1, 1.1, 0.1)
+        METHOD_FUNCS = [self.sarsa_episode, self.q_learning_episode, self.expected_sarsa_episode]
+        METHOD_NAMES = ["Sarsa", "Q-learning", "Expected Sarsa"]
+        METHOD_MARKS = ["v", "s", "x"]
+        METHOD_COLORS = ["blue", "black", "red"]
+        PARS = [(500, 100, "Interim", ":"), (10, 1000, "Asymptotic", "-")]
+        ## Because of the long running of initial setting
+        ## For Interim, runs are reduced from 50000 to 500.
+        ## For Asympotic epsidoes are reduced from 100000 to 1000.
+        for method_func, method_name, method_mark, method_color in zip(METHOD_FUNCS, METHOD_NAMES, METHOD_MARKS,
+                                                                       METHOD_COLORS):
+            for runs, eppisodes, exp_name, line_style in PARS:
+                res = np.zeros_like(ALPHAS)
+                for i, alpha in enumerate(tqdm(ALPHAS)):
+                    res[i] = self.do_experiments(runs, eppisodes, method_func, alpha, EPSILON)
+                plt.plot(ALPHAS, res, linestyle=line_style, marker=method_mark, color=method_color,
+                         label="{}_{}".format(method_name, exp_name))
+        plt.legend()
+        plt.savefig("Figure_6_3.png")
+        plt.close()
+
     def __draw_line(self, ax, point1, point2, color, label=None):  # point is a tuple of coordinates (x,y)
         x, y = list(zip(point1, point2))
         ax.plot(x, y, color=color, label=label)
@@ -111,7 +167,7 @@ class CliffWalking:
         centre_x = x + (c + 0.5) * cell_width
         return centre_x, centre_y
 
-    def visualize_trajectory(self, ax, top_left, cell_width, color, label):
+    def __visualize_trajectory(self, ax, top_left, cell_width, color, label):
         TOP_LEFT = top_left
         CELL_WIDTH = cell_width
         actions = self.grid_word.argmax(axis=-1)
@@ -126,7 +182,7 @@ class CliffWalking:
             action = actions[state]
             i += 1
 
-    def draw_background(self, ax, top_left, cell_width):
+    def __draw_background(self, ax, top_left, cell_width):
         TOP_LEFT = top_left
         CELL_WIDTH = cell_width
         self.__draw_grid(ax, TOP_LEFT, CELL_WIDTH, "black")
@@ -151,11 +207,11 @@ class CliffWalking:
         CELL_WIDTH = 5
         methods_funcs = [self.sarsa_episode, self.q_learning_episode]
         methods_names = ["Sarsa", "Q-learning"]
-        colors = ["red", "blue"]
+        methods_colors = ["red", "blue"]
         plt.figure(figsize=(20, 4))
         ax = plt.subplot(1, 2, 2)
-        self.draw_background(ax, TOP_LEFT, CELL_WIDTH)
-        for func, name, color in zip(methods_funcs, methods_names, colors):
+        self.__draw_background(ax, TOP_LEFT, CELL_WIDTH)
+        for func, name, color in zip(methods_funcs, methods_names, methods_colors):
             sum_rewards = np.zeros((RUNS, EPISODES), dtype=np.float32)
             for run in tqdm(range(RUNS)):
                 self.init()
@@ -167,7 +223,7 @@ class CliffWalking:
             ax = plt.subplot(1, 2, 1)
             ax.plot(np.arange(1, EPISODES + 1), sum_rewards.mean(axis=0), label=name, color=color)
             ax = plt.subplot(1, 2, 2)
-            self.visualize_trajectory(ax, TOP_LEFT, CELL_WIDTH, color, name)
+            self.__visualize_trajectory(ax, TOP_LEFT, CELL_WIDTH, color, name)
         ax.legend()
         ax = plt.subplot(1, 2, 1)
         ax.legend()
@@ -183,5 +239,11 @@ def example_6_6():
     cliff_walk.example_6_6()
 
 
+def figure_6_3():
+    cliff_walk = CliffWalking()
+    cliff_walk.figure_6_3()
+
+
 if __name__ == "__main__":
     example_6_6()
+    figure_6_3()
