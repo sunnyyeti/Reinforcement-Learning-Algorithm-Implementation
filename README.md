@@ -49,4 +49,5 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 
 ## Chapter 7
 |<img src="https://i.imgur.com/5e1IkIb.png" width="200" height="150"><p align="center"> Figure 7.2 </p>|
+|---|
 1. [Figure 7.2: Performance of n-step TD methods as a function of ↵, for various values of n, on a 19-state random walk task (Example 7.1)](https://i.imgur.com/5e1IkIb.png)
