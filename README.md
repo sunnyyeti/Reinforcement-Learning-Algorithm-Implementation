@@ -45,3 +45,8 @@ Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/rein
 4. [Example 6.6: Cliff walking.](https://i.imgur.com/cGoWwQY.png)
 5. [Figure 6.3: Interim and asymptotic performance of TD control methods on the cliff-walking task as a function of α.](https://i.imgur.com/lRtrYqb.png)
 6. [Figure 6.5: Comparison of Q-learning and Double Q-learning on a simple episodic MDP.](https://i.imgur.com/H3yWsHC.png)
+
+
+## Chapter 7
+|<img src="https://imgur.com/5e1IkIb" width="200" height="150"><p align="center"> Figure 7.2 </p>|
+1. [Figure 7.2: Performance of n-step TD methods as a function of ↵, for various values of n, on a 19-state random walk task (Example 7.1)](https://imgur.com/5e1IkIb)
