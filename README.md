@@ -1,5 +1,5 @@
 # Reinforcement-Learning-Algorithm-Implementation
-Thanks for the inspiration of [this repo](https://github.com/ShangtongZhang/reinforcement-learning-an-introduction). I tried to implement all algorithms and examples in the book "[Reinforcement Learning: An Introduction (2nd Edition)](http://incompleteideas.net/book/RLbook2018trimmed.pdf)" using Python individually. Please feel free to use all these codes for education or self-study. 
+I tried to implement all algorithms and examples in the book "[Reinforcement Learning: An Introduction (2nd Edition)](http://incompleteideas.net/book/RLbook2018trimmed.pdf)" using Python individually. Please feel free to use all these codes for education or self-study. 
 
 # Contents
 ## Chapter 2
